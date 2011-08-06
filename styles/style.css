@@ -1,7 +1,12 @@
+html, body, div, span, h1, h2, h3, p, a, em, img, strong, u, ol, ul, li, form, label, caption, aside, canvas, figure, figcaption, footer, header, hgroup, menu, nav, section, time, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block}
+body {line-height: 1}
+ol, ul {list-style: none}
+
 body{
     -webkit-box-sizing: border-box; 
     -o-box-sizing: border-box; 
-    -mozilla-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
     width: 100%; 
 }
 
