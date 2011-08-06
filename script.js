@@ -5,7 +5,7 @@ var bpm = 60;
 
 $(document).ready(function() {
 	console.log(0);
-	init(16, 4);
+	init(16, sounds.length);
 	play(bpm);
 });
 
