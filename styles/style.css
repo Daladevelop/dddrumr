@@ -1,0 +1,13 @@
+body{
+    -webkit-box-sizing: border-box; 
+    -o-box-sizing: border-box; 
+    -mozilla-box-sizing: border-box; 
+    width: 100%; 
+}
+
+.beat{float: left; }
+
+input[type=checkbox] {
+    display: block;
+}
+
