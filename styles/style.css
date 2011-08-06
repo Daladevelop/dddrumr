@@ -3,10 +3,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {line-height: 1}
 ol, ul {list-style: none}
 
+section, div {-moz-box-sizing: border-box;box-sizing: border-box;}
+
 body{
-    -webkit-box-sizing: border-box; 
-    -o-box-sizing: border-box; 
-    -moz-box-sizing: border-box; 
     width: 100%; 
 }
 
@@ -15,4 +14,3 @@ body{
 input[type=checkbox] {
     display: block;
 }
-
