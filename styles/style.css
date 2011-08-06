@@ -3,6 +3,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {line-height: 1}
 ol, ul {list-style: none}
 
+section, div {-moz-box-sizing: border-box;box-sizing: border-box;}
+
 body{
     background: #507D2A;
     -webkit-box-sizing: border-box; 
@@ -34,4 +36,8 @@ body{
 .beat{float: left; }
 input[type=checkbox] {
     display: block;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 65c10af6c2a16951568a1fd04bf942ee922b36fc

@@ -1,6 +1,9 @@
+var playing = 0;
+var beat = 1;
+
 $(document).ready(function() {
 	initialize(16, 2);
-	play();
+	play(60);
 });
 
 function initialize(beats, sounds) {
@@ -37,10 +40,30 @@ function initialize(beats, sounds) {
 				type: 'checkbox',
 				value: j
 			});
+			var lbl = $('<label>');
 			
 			beat.append(cb);
+			beat.append(lbl);
 		}
 		
 		frm.append(beat);
 	}
+}
+
+function play(bpm) {
+	if(bpm.toString().search(/^-?[0-9]+$/) == 0 && bpm >= 40 && bpm <= 200) {
+		playing = setInterval('trigger(beat)', (60000 / bpm) / 4);
+	}
+}
+
+function stop() {
+	clearInterval(playing);
+}
+
+function trigger() {
+	var beats = $('div.beat').removeClass('playing');
+	var checkboxes = beats.eq(beat - 1)
+		.addClass('playing')
+		.find('input:checked');
+	beat = (beat % 16) + 1;
 }
