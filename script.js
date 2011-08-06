@@ -1,7 +1,7 @@
 var playing = 0;
 var beat = 1;
-var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell', 'sounds/tom1', 'sounds/tom2'];
 var bpm = 60;
+var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell', 'sounds/tom1', 'sounds/tom2'];
 
 $(document).ready(function() {
 	init(16, sounds.length);
