@@ -4,7 +4,6 @@ var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell'];
 var bpm = 60;
 
 $(document).ready(function() {
-	console.log(0);
 	init(16, sounds.length);
 	play(bpm);
 });
@@ -45,14 +44,37 @@ function init(b, s) {
 				type: 'checkbox',
 				value: j
 			});
-			var lbl = $('<label>');
 			
-			beat.append(cb);
+			var lbl = $('<label>')
+				.append(cb);
+			
 			beat.append(lbl);
 		}
 		
 		frm.append(beat);
 	}
+	
+	// Add controls.
+	var range = $('<input>', {
+		type: 'range',
+		min: 40,
+		max: 200,
+		value: 60
+	}).change(function() {
+		var $this = $(this);
+		var slider_value = $('#range');
+		
+		if(slider_value.length == 0) {
+			$this.after($('<span id="range">').html($this.val() + ' BPM'));
+		} else {
+			slider_value.html($this.val() + ' BPM');
+		}
+	});
+	
+	var controls = $('<div id="controls">')
+		.append(range);
+		
+	frm.before(controls);
 }
 
 function play(bpm) {
@@ -76,5 +98,5 @@ function trigger() {
 			audio.play();
 		}).get();
 	beat = (beat % 16) + 1;
-	play(parseInt($('input[type="text"]').val()));
+	play(parseInt($('input[type="range"]').val()));
 }
