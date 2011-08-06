@@ -29,15 +29,26 @@ body{
     h2{font-size: 1.5em; }
 
 }
+.beat{float: left; width: 6% }
 
-
-    
-
-.beat{float: left; }
 input[type=checkbox] {
     display: block;
-<<<<<<< HEAD
+  position: absolute;
+  width: 100%; 
+  opacity: 0;
 }
-=======
+
+input[type=checkbox] + label {
+  display: block;
+  width: 100%;
+  height: 20px; 
+  line-height: 1.5em;
+  text-align: center;
+  border: 1px solid black;
 }
->>>>>>> 65c10af6c2a16951568a1fd04bf942ee922b36fc
+
+input[type=checkbox]:checked + label{
+    background:orange;
+    opacity: 0.6; 
+}
+.playing{ background: #fff; opacity: 0.2; }
