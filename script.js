@@ -58,7 +58,7 @@ function init(b, s) {
 	
 	// Add controls.
 	var range = $('<input>', {
-		type: 'range',
+		type: 'text',
 		min: 40,
 		max: 200,
 		value: bpm
@@ -72,7 +72,7 @@ function init(b, s) {
 	});
 	
 	if(range.get(0).type != 'text') {
-		range.after($('<span id="range">').html(bpm + ' BPM'));
+		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
 	}
 	
 	var button_play = $('<a href="#" class="button left">').html('Play').click(function() {
