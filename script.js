@@ -58,7 +58,7 @@ function init(b, s) {
 	
 	// Add controls.
 	var range = $('<input>', {
-		type: 'text',
+		type: 'range',
 		min: 40,
 		max: 200,
 		value: bpm
