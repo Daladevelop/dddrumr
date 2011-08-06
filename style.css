@@ -19,6 +19,13 @@ h2 {
 	font-size: 1.2em;
 }
 
+header {
+	margin: 5px;
+}
+div.buttons {
+	margin-left: 5px;
+}
+
 input[type=checkbox] {
     display: block;
     position: absolute;
@@ -34,11 +41,18 @@ input[type=checkbox] + label {
 }
 
 input[type=checkbox]:checked + label{
-    background: orange;
+    //background: orange;
     opacity: 0.6;
+    background: #e2a62d; /* Old browsers */
+	background: -moz-linear-gradient(top, #e2a62d 0%, #b77a00 51%, #e2a62d 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e2a62d), color-stop(51%,#b77a00), color-stop(100%,#e2a62d)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #e2a62d 0%,#b77a00 51%,#e2a62d 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #e2a62d 0%,#b77a00 51%,#e2a62d 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #e2a62d 0%,#b77a00 51%,#e2a62d 100%); /* IE10+ */
+	background: linear-gradient(top, #e2a62d 0%,#b77a00 51%,#e2a62d 100%); /* W3C */
+
 }
 .playing{ background: #fff; opacity: 0.2; }
-
 
 /* End of the basics */
 

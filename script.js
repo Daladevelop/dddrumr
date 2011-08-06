@@ -1,6 +1,6 @@
 var playing = 0;
 var beat = 1;
-var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell'];
+var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell', 'sounds/tom1', 'sounds/tom2'];
 var bpm = 60;
 
 $(document).ready(function() {
@@ -18,7 +18,7 @@ function init(b, s) {
 			id: 'a' + a
 		});
 		
-		var f = sounds[a % 4];
+		var f = sounds[a % sounds.length];
 		
 		audio.append($('<source>', {
 			src: f + '.ogg',
@@ -110,7 +110,7 @@ function trigger() {
 	var cb = beats.eq(beat - 1)
 		.addClass('playing')
 		.find('input:checked').each(function() {
-			var audio = $('#a' + ((beat * 4) + parseInt(this.value) - 4))[0];
+			var audio = $('#a' + ((beat * sounds.length) + parseInt(this.value) - sounds.length))[0];
 			audio.currentTime = 0;
 			audio.play();
 		}).get();
