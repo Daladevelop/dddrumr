@@ -71,8 +71,23 @@ function init(b, s) {
 		}
 	});
 	
+	var play = $('<button>').html('Stop').click(function() {
+		play(parseInt($('input[type="range"]').val()));
+	});
+	
+	var stop = $('<button>').html('Stop').click(function() {
+		stop();
+	});
+	
+	var stop = $('<button>').html('Clear').click(function() {
+		$('div.beat input[type="checkbox"]').attr('checked', false);
+	});
+	
 	var controls = $('<div id="controls">')
-		.append(range);
+		.append(range)
+		.append(play)
+		.append(stop)
+		.append(clear);
 		
 	frm.before(controls);
 }
