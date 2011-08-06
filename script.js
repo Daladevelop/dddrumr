@@ -1,6 +1,6 @@
 var playing = 0;
 var beat = 1;
-var sounds = ['a','b','c','d'];
+var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell'];
 var bpm = 60;
 
 $(document).ready(function() {
