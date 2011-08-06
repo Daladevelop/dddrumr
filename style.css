@@ -14,9 +14,11 @@ body {
 
 h1 {
 	font-size: 2em;
+    margin-bottom: 20px; 
 }
 h2 {
 	font-size: 1.2em;
+    margin-bottom: 30px; 
 }
 
 header {
@@ -52,7 +54,7 @@ input[type=checkbox]:checked + label{
 	background: linear-gradient(top, #e2a62d 0%,#b77a00 51%,#e2a62d 100%); /* W3C */
 
 }
-.playing{ background: #fff; opacity: 0.2; }
+.playing{ background: orange; opacity: 0.2; }
 
 /* End of the basics */
 
