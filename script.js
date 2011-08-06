@@ -1,6 +1,6 @@
 var playing = 0;
 var beat = 1;
-var bpm = 60;
+var bpm = 120;
 var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell', 'sounds/tom1', 'sounds/tom2'];
 
 $(document).ready(function() {
@@ -35,9 +35,7 @@ function init(b, s) {
 	
 	// Add checkboxes.
 	for(var i = 0; i < b; i++) {
-		var beat = $('<div>', {
-			class: 'beat'
-		});
+		var beat = $('<div>').addClass('beat');
 		
 		for(var j = 0; j < s; j++) {
 			var cb = $('<input>', {
@@ -46,7 +44,7 @@ function init(b, s) {
 				id: 'chk' + i + j
 			});
 			var lbl = $('<label>', {
-				for: 'chk' + i + j
+				'for': 'chk' + i + j
 			});
 
 			beat.append(cb);
@@ -58,7 +56,7 @@ function init(b, s) {
 	
 	// Add controls.
 	var range = $('<input>', {
-		type: 'text',
+		type: 'range',
 		min: 40,
 		max: 200,
 		value: bpm
@@ -70,10 +68,6 @@ function init(b, s) {
 			slider_value.html($this.val() + ' BPM');
 		}
 	});
-	
-	if(range.get(0).type != 'text') {
-		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
-	}
 	
 	var button_play = $('<a href="#" class="button left">').html('Play').click(function() {
 		play(parseInt($('input[type="range"]').val()));
@@ -92,6 +86,10 @@ function init(b, s) {
 		.append(button_play)
 		.append(button_stop)
 		.append(button_clear);
+	
+	if(range.get(0).type != 'text') {
+		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
+	}
 }
 
 function play(bpm) {
