@@ -4,6 +4,7 @@ var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell'];
 var bpm = 60;
 
 $(document).ready(function() {
+	console.log(0);
 	init(16, 4);
 	play(bpm);
 });
@@ -70,7 +71,9 @@ function trigger() {
 	var cb = beats.eq(beat - 1)
 		.addClass('playing')
 		.find('input:checked').each(function() {
-			$('#a' + ((beat * 4) + parseInt(this.value) - 4))[0].play();
+			var audio = $('#a' + ((beat * 4) + parseInt(this.value) - 4))[0];
+			audio.currentTime = 0;
+			audio.play();
 		}).get();
 	beat = (beat % 16) + 1;
 	play(parseInt($('input[type="text"]').val()));
