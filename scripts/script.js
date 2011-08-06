@@ -37,8 +37,10 @@ function initialize(beats, sounds) {
 				type: 'checkbox',
 				value: j
 			});
+			var lbl = $('<label>');
 			
 			beat.append(cb);
+			beat.append(lbl);
 		}
 		
 		frm.append(beat);
