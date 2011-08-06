@@ -44,9 +44,10 @@ function init(b, s) {
 				type: 'checkbox',
 				value: j
 			});
-			var lbl = $('<label>');
 			
-			beat.append(cb);
+			var lbl = $('<label>')
+				.append(cb);
+			
 			beat.append(lbl);
 		}
 		
