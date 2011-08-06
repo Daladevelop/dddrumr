@@ -5,7 +5,7 @@ ol, ul {list-style: none}
 
 body, section, div {-moz-box-sizing: border-box;box-sizing: border-box;}
 
-body{
+/*body{
     background: #507D2A;
     width: 100%;
     padding: 40px;  
@@ -25,13 +25,48 @@ body{
     h1{font-size: 4em; color: yellow; }
     h2{font-size: 1.5em; }
 
+}*/
+
+body {
+	background: #507D2A;
 }
-.beat{float: left; width: 6% }
+
+h1 {
+	font-size: 6em;
+}
+h2 {
+	font-size: 2.4em;
+}
+
+@media all and (min-width: 320px) {
+	body {
+		width: 100%;
+		padding: 0;
+	}
+}
+
+@media all and (min-width: 481px) {
+	
+}
+
+@media all and (min-width: 960px) {
+	body {
+		width: 960px;
+		padding: 10px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+}
+
+.beat{float: left; width: 50px;}
 
 input[type=checkbox] {
     display: block;
     position: absolute;
-    width: 100%; 
+    width: 40px;
+    height: 40px;
+    margin: 5px;
     opacity: 0;
     background:#507D2A;
     z-index: 10;
@@ -39,9 +74,10 @@ input[type=checkbox] {
 
 input[type=checkbox] + label {
   display: block;
-  width: 100%;
-  height: 20px; 
-  line-height: 1.5em;
+  width: 40px;
+  height: 40px; 
+  line-height: 40px;
+  margin: 5px;
   text-align: center;
   border: 1px solid #000;
 }
