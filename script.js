@@ -1,10 +1,11 @@
 var playing = 0;
 var beat = 1;
 var sounds = ['a','b','c','d'];
+var bpm = 60;
 
 $(document).ready(function() {
 	init(16, 4);
-	play(60);
+	play(bpm);
 });
 
 function init(b, s) {
@@ -55,6 +56,7 @@ function init(b, s) {
 
 function play(bpm) {
 	if(bpm.toString().search(/^-?[0-9]+$/) == 0 && bpm >= 40 && bpm <= 200) {
+		stop();
 		playing = setInterval('trigger(beat)', (60000 / bpm) / 4);
 	}
 }
@@ -68,7 +70,8 @@ function trigger() {
 	var cb = beats.eq(beat - 1)
 		.addClass('playing')
 		.find('input:checked').each(function() {
-			$('#a' + ((beat * 2) + parseInt(this.value) - 2))[0].play();
+			$('#a' + ((beat * 4) + parseInt(this.value) - 4))[0].play();
 		}).get();
 	beat = (beat % 16) + 1;
+	play(parseInt($('input[type="text"]').val()));
 }
