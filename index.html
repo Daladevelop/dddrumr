@@ -25,6 +25,27 @@
 		<footer>ddDrumr is a project by Daladevelop made for 10k Apart 2011</footer>
 		
 		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
-        <script src="script.js"></script>
+		<script src="script.js"></script>
+		<script src="http://connect.soundcloud.com/2/latest.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function(){
+
+				SC.initialize({
+					client_id: "537176f93040ef34102aecb4bf99639d"
+
+				});
+
+				SC.get("/tracks?limit=1&tags=acapella&bpm[from]="+ parseInt(bpm-10) + "&bpm[to]=" + parseInt(bpm+10), function(soundcloudSongs){
+					$.each(soundcloudSongs, function () {
+						
+					});
+				});
+
+
+
+			});
+
+
+		</script>
 	</body>
 </html>
