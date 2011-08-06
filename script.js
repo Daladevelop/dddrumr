@@ -30,6 +30,8 @@ function init(b, s) {
 			type: 'audio/mp3'
 		}));
 		
+		audio.get(0).load();
+		
 		bdy.append(audio);
 	}
 	
