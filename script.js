@@ -73,25 +73,23 @@ function init(b, s) {
 		}
 	});
 	
-	var button_play = $('<button>').html('Play').click(function() {
+	var button_play = $('<a href="#" class="button left">').html('Play').click(function() {
 		play(parseInt($('input[type="range"]').val()));
 	});
 	
-	var button_stop = $('<button>').html('Stop').click(function() {
+	var button_stop = $('<a href="#" class="button middle">').html('Stop').click(function() {
 		stop();
 	});
 	
-	var button_clear = $('<button>').html('Clear').click(function() {
+	var button_clear = $('<a href="#" class="button right">').html('Clear').click(function() {
 		$('div.beat input[type="checkbox"]').attr('checked', false);
 	});
 	
-	var controls = $('<div id="controls">')
+	$('.buttons')
 		.append(range)
 		.append(button_play)
 		.append(button_stop)
 		.append(button_clear);
-		
-	frm.before(controls);
 }
 
 function play(bpm) {

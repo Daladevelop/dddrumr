@@ -47,18 +47,6 @@ input[type=checkbox]:checked + label{
 }
 .playing{ background: #fff; opacity: 0.2; }
 
-#wrapper{
-	padding: 20px; 
-	background: #d8d8d8; /* Old browsers */
-	background: -moz-linear-gradient(top, #d8d8d8 35%, #acacac 99%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(35%,#d8d8d8), color-stop(99%,#acacac)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #d8d8d8 35%,#acacac 99%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #d8d8d8 35%,#acacac 99%); /* Opera11.10+ */
-	background: -ms-linear-gradient(top, #d8d8d8 35%,#acacac 99%); /* IE10+ */
-	background: linear-gradient(top, #d8d8d8 35%,#acacac 99%); /* W3C */
-	body: 100%; 
-}
-
 /* End of the basics */
 
 
