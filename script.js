@@ -1,28 +1,31 @@
 var playing = 0;
 var beat = 1;
+var sounds = ['a','b','c','d'];
 
 $(document).ready(function() {
-	initialize(16, 2);
+	init(16, 4);
 	play(60);
 });
 
-function initialize(beats, sounds) {
+function init(b, s) {
 	var frm = $('form');
 	var bdy = $('body');
 	
 	// Add audio elements.
-	for(var a = 0; a < beats * sounds; a++) {
+	for(var a = 0; a < b * s; a++) {
 		var audio = $('<audio>', {
 			id: 'a' + a
 		});
 		
+		var f = sounds[a % 4];
+		
 		audio.append($('<source>', {
-			src: 'horse.ogg',
+			src: f + '.ogg',
 			type: 'audio/ogg'
 		}));
 		
 		audio.append($('<source>', {
-			src: 'horse.mp3',
+			src: f + '.mp3',
 			type: 'audio/mp3'
 		}));
 		
@@ -30,12 +33,12 @@ function initialize(beats, sounds) {
 	}
 	
 	// Add checkboxes.
-	for(var i = 0; i < beats; i++) {
+	for(var i = 0; i < b; i++) {
 		var beat = $('<div>', {
 			class: 'beat'
 		});
 		
-		for(var j = 0; j < sounds; j++) {
+		for(var j = 0; j < s; j++) {
 			var cb = $('<input>', {
 				type: 'checkbox',
 				value: j
@@ -62,8 +65,10 @@ function stop() {
 
 function trigger() {
 	var beats = $('div.beat').removeClass('playing');
-	var checkboxes = beats.eq(beat - 1)
+	var cb = beats.eq(beat - 1)
 		.addClass('playing')
-		.find('input:checked');
+		.find('input:checked').each(function() {
+			$('#a' + ((beat * 2) + parseInt(this.value) - 2))[0].play();
+		}).get();
 	beat = (beat % 16) + 1;
 }
