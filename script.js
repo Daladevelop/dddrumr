@@ -73,23 +73,23 @@ function init(b, s) {
 		}
 	});
 	
-	var play = $('<button>').html('Stop').click(function() {
+	var button_play = $('<button>').html('Play').click(function() {
 		play(parseInt($('input[type="range"]').val()));
 	});
 	
-	var stop = $('<button>').html('Stop').click(function() {
+	var button_stop = $('<button>').html('Stop').click(function() {
 		stop();
 	});
 	
-	var stop = $('<button>').html('Clear').click(function() {
+	var button_clear = $('<button>').html('Clear').click(function() {
 		$('div.beat input[type="checkbox"]').attr('checked', false);
 	});
 	
 	var controls = $('<div id="controls">')
 		.append(range)
-		.append(play)
-		.append(stop)
-		.append(clear);
+		.append(button_play)
+		.append(button_stop)
+		.append(button_clear);
 		
 	frm.before(controls);
 }
