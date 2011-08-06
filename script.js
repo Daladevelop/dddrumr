@@ -1,7 +1,7 @@
 var playing = 0;
 var beat = 1;
-var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell', 'sounds/tom1', 'sounds/tom2'];
 var bpm = 60;
+var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell', 'sounds/tom1', 'sounds/tom2'];
 
 $(document).ready(function() {
 	init(16, sounds.length);
@@ -61,17 +61,19 @@ function init(b, s) {
 		type: 'range',
 		min: 40,
 		max: 200,
-		value: 60
+		value: bpm
 	}).change(function() {
 		var $this = $(this);
 		var slider_value = $('#range');
 		
-		if(slider_value.length == 0) {
-			$this.after($('<span id="range">').html($this.val() + ' BPM'));
-		} else {
+		if(slider_value.length != 0) {
 			slider_value.html($this.val() + ' BPM');
 		}
 	});
+	
+	if(range.get(0).type != 'text') {
+		range.after($('<span id="range">').html(bpm + ' BPM'));
+	}
 	
 	var button_play = $('<a href="#" class="button left">').html('Play').click(function() {
 		play(parseInt($('input[type="range"]').val()));
