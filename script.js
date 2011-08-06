@@ -1,6 +1,6 @@
 var playing = 0;
 var beat = 1;
-var bpm = 60;
+var bpm = 120;
 var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell', 'sounds/tom1', 'sounds/tom2'];
 
 $(document).ready(function() {
@@ -69,10 +69,6 @@ function init(b, s) {
 		}
 	});
 	
-	if(range.get(0).type != 'text') {
-		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
-	}
-	
 	var button_play = $('<a href="#" class="button left">').html('Play').click(function() {
 		play(parseInt($('input[type="range"]').val()));
 	});
@@ -90,6 +86,10 @@ function init(b, s) {
 		.append(button_play)
 		.append(button_stop)
 		.append(button_clear);
+	
+	if(range.get(0).type != 'text') {
+		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
+	}
 }
 
 function play(bpm) {
