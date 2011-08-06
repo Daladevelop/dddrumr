@@ -42,15 +42,17 @@ function init(b, s) {
 		for(var j = 0; j < s; j++) {
 			var cb = $('<input>', {
 				type: 'checkbox',
-				value: j
+				value: j,
+				id: 'chk' + i + j
 			});
-			
-			var lbl = $('<label>')
-				.append(cb);
-			
+			var lbl = $('<label>', {
+				for: 'chk' + i + j
+			});
+
+			beat.append(cb);
 			beat.append(lbl);
 		}
-		
+
 		frm.append(beat);
 	}
 	
