@@ -21,6 +21,13 @@ h2 {
     margin-bottom: 30px; 
 }
 
+header {
+	margin: 5px;
+}
+div.buttons {
+	margin-left: 5px;
+}
+
 input[type=checkbox] {
     display: block;
     position: absolute;
