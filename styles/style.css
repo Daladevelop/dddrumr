@@ -4,15 +4,34 @@ body {line-height: 1}
 ol, ul {list-style: none}
 
 body{
+    background: #507D2A;
     -webkit-box-sizing: border-box; 
     -o-box-sizing: border-box; 
     -moz-box-sizing: border-box; 
-    width: 100%; 
+    width: 100%;
+    padding: 40px;  
+}
+@media all and (min-width: 601px){
+    h1{font-size: 6em;}
+    h2{font-size: 2.4em; }
 }
 
-.beat{float: left; }
+@media all and (min-width: 0px) and (max-width: 321px) {
+    h1{font-size: 2em; color: red;}
+    h2{font-size: 0.75em; }
+}
 
+@media all and (min-width: 322px) and  (max-width: 600px) {
+    
+    h1{font-size: 4em; color: yellow; }
+    h2{font-size: 1.5em; }
+
+}
+
+
+    
+
+.beat{float: left; }
 input[type=checkbox] {
     display: block;
 }
-
