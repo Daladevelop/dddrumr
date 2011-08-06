@@ -35,9 +35,7 @@ function init(b, s) {
 	
 	// Add checkboxes.
 	for(var i = 0; i < b; i++) {
-		var beat = $('<div>', {
-			class: 'beat'
-		});
+		var beat = $('<div>').addClass('beat');
 		
 		for(var j = 0; j < s; j++) {
 			var cb = $('<input>', {
@@ -46,7 +44,7 @@ function init(b, s) {
 				id: 'chk' + i + j
 			});
 			var lbl = $('<label>', {
-				for: 'chk' + i + j
+				'for': 'chk' + i + j
 			});
 
 			beat.append(cb);
