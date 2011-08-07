@@ -256,7 +256,7 @@ function urlShorten(url) {
 	$.getJSON('http://dvlp.se/new/?url=' + url + '&api=3&callback=?', function(ret) {
 			shortURL = ret.URI;
 			var message = escape('I\'ve created a beat with ddDrumr. Check it out! ');
-			message = message + encodeURIComponent(shortURL);
+			message = message + encodeURIComponent(shortURL) + escape(' #daladevelop ') + encodeURIComponent('http://daladevelop.se');
 			$('#share_pane .twitter a').attr('href', 'http://twitter.com?status=' + message);
 			$('#share_pane').toggleClass('target');
 		}
