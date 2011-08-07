@@ -139,12 +139,12 @@ function add_buttons() {
 		return false; 
 	});
 	
-	var button_soundcloud_play = $('<a href="#" class="button middle">').html('play').click(function(){
-		if(this.innerHTML == 'pause') {
-			this.innerHTML = 'play';
+	var button_soundcloud_play = $('<a href="#" class="button middle">').html('Play').click(function(){
+		if(this.innerHTML == 'Pause') {
+			this.innerHTML = 'Play';
 			soundcloud_pause();
 		} else {
-			this.innerHTML = 'pause';
+			this.innerHTML = 'Pause';
 			soundcloud_play();
 		}
 		
@@ -156,7 +156,7 @@ function add_buttons() {
 		return false;
 	});
 	
-	$('.buttons')
+	var buttons = $('.buttons')
 		.append(range)
 		.append(button_play)
 		.append(button_stop)
@@ -168,7 +168,7 @@ function add_buttons() {
 		.append(select_sound_set);
 	
 	if(range.get(0).type != 'text') {
-		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
+		buttons.append($('<span id="range">').html(bpm + ' BPM'));
 	}
 	
 	$('#share').click(function() {
