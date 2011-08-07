@@ -76,7 +76,8 @@ function add_grid(b, s) {
 }
 
 function add_buttons() {
-	// Add controls.
+	var buttons = $('<div>').addClass('buttons');
+	
 	var range = $('<input>', {
 		type: 'range',
 		min: 40,
@@ -115,6 +116,29 @@ function add_buttons() {
 		
 		select_sound_set.append(option);
 	}
+	
+	var button_demo = $('<a id="demo" href="#" class="button left">').html('Demo').click(function() {
+		load('eyJicG0iOiIxNDIiLCJjaGVjayI6W1siMCIsIjMiXSxbXSxbIjAiLCIyIl0sWyIwIiwiNCJdLFsiMSIsIjMiXSxbIjAiXSxbIjIiXSxbIjAiXSxbIjMiXSxbIjAiXSxbIjIiXSxbIjAiLCI1Il0sWyIxIiwiMyJdLFtdLFsiMiIsIjYiXSxbIjAiLCI2Il1dfQ==');
+		play(bpm);
+		return false;
+	});
+	
+	var button_about = $('<a id="about" href="#about_box" class="button middle">').html('About');
+	
+	var button_share = $('<a id="share" href="#share_pane" class="button right">').html('Share').click(function() {
+		location.hash = save();
+		urlShorten(location.href);
+		return false;
+	});
+	
+	var twitter = $('<li class="twitter"><span>t</span> <a href="#" class="twitter">Post to Twitter</a></li>');
+	var facebook = $('<li class="facebook"><span>f</span> <a href="#" class="facebook">Post to Facebook</a></li>');
+	
+	button_share.append(
+		$('<div id="share_pane">').append($('<ul>')
+			.append(twitter)
+			.append(facebook))
+	);
 	
 	var button_play = $('<a href="#" class="button left">').html('Play').click(function() {
 		play(parseInt($('input[type="range"]').val()));
@@ -159,7 +183,10 @@ function add_buttons() {
 		return false;
 	});
 	
-	var buttons = $('.buttons')
+	buttons
+		.append(button_demo)
+		.append(button_about)
+		.append(button_share)
 		.append(range)
 		.append(button_play)
 		.append(button_stop)
@@ -174,22 +201,12 @@ function add_buttons() {
 		buttons.append($('<span id="range">').html(bpm + ' BPM'));
 	}
 	
-	$('#share').click(function() {
-		location.hash = save();
-		urlShorten(location.href);
-		return false;
-	});
-	
-	$('#demo').click(function() {
-		load('eyJicG0iOiIxNDIiLCJjaGVjayI6W1siMCIsIjMiXSxbXSxbIjAiLCIyIl0sWyIwIiwiNCJdLFsiMSIsIjMiXSxbIjAiXSxbIjIiXSxbIjAiXSxbIjMiXSxbIjAiXSxbIjIiXSxbIjAiLCI1Il0sWyIxIiwiMyJdLFtdLFsiMiIsIjYiXSxbIjAiLCI2Il1dfQ==');
-		play(bpm);
-		return false;
-	});
-	
 	$('#about_box').click(function() {
 		history.go(-1);
 		return false;
 	});
+	
+	$('header').after(buttons);
 }
 
 function save() {
