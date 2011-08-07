@@ -13,6 +13,13 @@ body {
    	padding: 10px;
 }
 
+hgroup h1 {
+	margin: 0;
+}
+hgroup h2 {
+	margin-bottom: 0.5em;
+}
+
 form {
 	position: relative;
 	z-index: 5;
@@ -34,6 +41,16 @@ h2 {
 div.buttons {
 	width: 100%;
 	padding: 10px;
+}
+
+div.buttons input[type=range] {
+	height: 33px;
+}
+div.buttons span#range {
+	line-height: 37px;
+	display: block;
+	float: left;
+	min-width: 100px;
 }
 
 input[type=checkbox] {
@@ -80,8 +97,8 @@ aside#about_box {
 	border: 1px solid #000;
 	border-radius: 10px;
 	
-	-webkit-transition: opacity 2s linear;
-	transition: opacity 2s linear;
+	-webkit-transition: opacity 0s linear;
+	transition: opacity 0s linear;
 	
 	font-size: 16px;
 	text-align: justify;
@@ -89,6 +106,9 @@ aside#about_box {
 aside#about_box:target {
 	opacity: 1;
 	z-index: 20;
+	
+	-webkit-transition: opacity 1.5s linear;
+	transition: opacity 1.5s linear;
 }
 
 aside h2 {
