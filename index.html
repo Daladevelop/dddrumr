@@ -50,6 +50,22 @@
 		<script src="script.js"></script>
 		<script src="http://connect.soundcloud.com/2/latest.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
+			var counter=0;
+			function playFromSoundcloud(){
+				if($('.soundcloudsong').length == 0)
+				{
+					console.log(bpm);
+					getSoundcloud();
+				}
+				var song = $('.soundcloudsong').eq(counter)[0];
+				
+				$('.soundcloudsong').eq(counter)[0].play();
+				$('.soundcloudsong').eq(counter-1)[0].pause();
+				counter++;
+	
+
+			}
+
 			function getSoundcloud(){
 
 				SC.initialize({
