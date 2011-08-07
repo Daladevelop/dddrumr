@@ -86,25 +86,40 @@ function init(b, s) {
 		return false;
 	});
 	
+	var button_soundcloud = $('<a href="#" class="button ">').html('Next soundcloud song').click(function(){
+				getSoundcloud();
+				return false; 
+			});
 	$('.buttons')
 		.append(range)
 		.append(button_play)
 		.append(button_stop)
-		.append(button_clear);
+		.append(button_clear)
+		.append(button_soundcloud);
 	
 	if(range.get(0).type != 'text') {
 		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
 	}
+	
+	$('#share').click(function() {
+		save();
+	});
+
 }
 
 function save() {
 	stop();
 	
 	var pattern = {
-		'bpm': bpm
+		'bpm': bpm,
+		'check': []
 	};
 	
-	console.log(pattern);
+	$('div.beat').each(function(index, element) {
+		pattern['check'][index] = $(element).find('input:checked').map(function() {
+			return $(this).val();
+		});
+	}).get();
 }
 
 function play(bpm) {
