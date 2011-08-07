@@ -69,7 +69,7 @@ aside#about_box {
 	margin-left: -30%;
 	top: 150px;
 	padding: 30px;
-	z-index: 1;
+	z-index: -20;
 	background: #fff;
 	opacity: 0;
 	border: 1px solid #000;
