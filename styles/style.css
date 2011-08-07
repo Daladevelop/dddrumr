@@ -3,6 +3,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {line-height: 1}
 ol, ul {list-style: none}
 
+@font-face {
+	font-family: "SocialIcons";
+	src: url("../fonts/SocialIcons.otf");
+}
+
 body, section, div, input, label, aside {-moz-box-sizing: border-box; box-sizing: border-box;}
 em {font-style: italic;}
 strong {font-weight: bold;}
@@ -43,6 +48,7 @@ h2 {
 div.buttons {
 	width: 100%;
 	padding: 10px;
+	position: relative;
 }
 
 div.buttons input[type=range] {
@@ -83,6 +89,53 @@ input[type=checkbox]:checked + label{
 
 }
 .playing{ background: orange; opacity: 0.2; }
+
+#share_pane {
+	display: none;
+	border: 1px solid #000;
+	border-radius: 5px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	background: #fff;
+	width: 150px;
+	font-size: 14px;
+	line-height: 21px;
+	padding: 0 5px;
+	position: absolute;
+	top: 46px;
+	left: 121px;
+	z-index: -10;
+}
+#share_pane.target {
+	display: block;
+	z-index: 50;
+}
+#share_pane a {
+	color: #000;
+	padding-left: 18px;
+}
+#share_pane li span {
+	display: block;
+	font-family: "SocialIcons";
+	border: 1px solid #000;
+	border-radius: 2px;
+	position: absolute;
+	margin-top: 2px;
+	width: 14px;
+	text-align: center;
+	color: #fff;
+	line-height: 16px;
+}
+#share_pane .twitter span {
+	background: #33CCFF; /* old browsers */
+	background: -moz-linear-gradient(top, #33CCFF 0%, #0FC3FF 50%, #5ED6FF 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#33CCFF), color-stop(50%,#0FC3FF), color-stop(100%,#5ED6FF)); /* webkit */
+}
+#share_pane .facebook span {
+	background: #385A97; /* old browsers */
+	background: -moz-linear-gradient(top, #385A97 0%, #546C93 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#385A97), color-stop(100%,#546C93)); /* webkit */
+}
 
 /* End of the basics */
 
