@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<title>dddrumr</title>
+		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="style.css" media="screen" />
 		<link rel="stylesheet" href="icons/styles.css" media="screen" />
 	</head>
@@ -17,7 +18,7 @@
 		
 		<div class="buttons">
 			<a id="demo" href="#" class="button left">Demo</a>
-			<a id="about" href="#" class="button middle">About</a>
+			<a id="about" href="#about_box" class="button middle">About</a>
 			<a id="share" href="#" class="button right">Share</a>
 		</div>
 		
@@ -27,9 +28,54 @@
 		
 		<br style="clear:both">
 		
+		<aside id="about_box">
+			<h1>ddDrumr</h1>
+			<p>ddDrumr is drum machine application written in html/css/javascript/jquery.
+			It's developed by the developer community <a
+			href="http://daladevelop.se">Daladevelop</a>.
+			Originally it was intended to be a contender in the <a
+			href="http://10k.aneventapart.com">10k Apart 2011</a> contest
+			but the fact that it uses audio files meant the 10k limit was quickly
+			passed.</p>
+			<h2>People</h2>
+			<p>Concept, development and design: <a
+			href="http://twitter.com/mikaeljorhult">Mikael Jorhult</a>, <a 
+			href="http://twitter.com/emomilol">Emil Österlund</a> and <a 
+			href="http://twitter.com/synvila">Henrik Carlsson</a>.</p>
+		</aside>
+		
 		<footer>ddDrumr is a project by Daladevelop made for 10k Apart 2011</footer>
 		
 		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
 		<script src="script.js"></script>
+		<script src="http://connect.soundcloud.com/2/latest.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			function getSoundcloud(){
+
+				SC.initialize({
+					client_id: "537176f93040ef34102aecb4bf99639d"
+
+				});
+
+				SC.get("/tracks?limit=5&tags=acapella&bpm[from]="+ parseInt(bpm-10) + "&bpm[to]=" + parseInt(bpm+10), function(soundcloudSongs){
+					$.each(soundcloudSongs, function () {
+						var audio = $('<audio>', {
+							class: 'soundcloudsong'
+							});		
+						var link = this.stream_url + "?client_id=537176f93040ef34102aecb4bf99639d";
+						audio.append($('<source>', {
+							src: link,
+							type: 'audio/mp3' 	
+					
+							}));
+						$('body').append(audio);
+					});
+
+
+
+					});
+			}
+
+		</script>
 	</body>
 </html>

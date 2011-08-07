@@ -88,11 +88,16 @@ function init(b, s) {
 		return false;
 	});
 	
+	var button_soundcloud = $('<a href="#" class="button ">').html('Next soundcloud song').click(function(){
+				getSoundcloud();
+				return false; 
+			});
 	$('.buttons')
 		.append(range)
 		.append(button_play)
 		.append(button_stop)
-		.append(button_clear);
+		.append(button_clear)
+		.append(button_soundcloud);
 	
 	if(range.get(0).type != 'text') {
 		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
@@ -102,6 +107,7 @@ function init(b, s) {
 		save();
 		return false;
 	});
+
 }
 
 function save() {
