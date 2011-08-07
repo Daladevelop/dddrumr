@@ -90,6 +90,11 @@ input[type=checkbox]:checked + label{
 }
 .playing{ background: orange; opacity: 0.2; }
 
+.buttons select {
+	display: block;
+	float: left;
+}
+
 #share_pane {
 	display: none;
 	border: 1px solid #000;
