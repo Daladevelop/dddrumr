@@ -3,6 +3,7 @@ var beat = 1;
 var bpm = 120;
 var sound_set = 0;
 var sounds = Array();
+var shortURL = '';
 sounds[0] = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell','sounds/tom1','sounds/tom2','sounds/clap'];
 sounds[1] = ['sounds/cowbell','sounds/clap'];
 
@@ -22,11 +23,11 @@ function init(b, s) {
 }
 
 function add_grid(b, s) {
-	var frm = $('form');
-	var bdy = $('body');
+	var form = $('<form>');
+	var body = $('body');
 	
 	// Reset.
-	frm.html('');
+	form.html('');
 	$('audio').remove();
 	
 	// Add audio elements.
@@ -47,7 +48,7 @@ function add_grid(b, s) {
 			type: 'audio/mp3'
 		}));
 		
-		bdy.append(audio);
+		body.append(audio);
 	}
 	
 	// Add checkboxes.
@@ -68,8 +69,10 @@ function add_grid(b, s) {
 			beat.append(lbl);
 		}
 
-		frm.append(beat);
+		form.append(beat);
 	}
+	
+	$('footer').before(form);
 }
 
 function add_buttons() {
@@ -172,8 +175,8 @@ function add_buttons() {
 	}
 	
 	$('#share').click(function() {
-		$('#share_pane').toggleClass('target');
 		location.hash = save();
+		urlShorten(location.href);
 		return false;
 	});
 	
@@ -246,4 +249,16 @@ function trigger() {
 		}).get();
 	beat = (beat % 16) + 1;
 	play(parseInt($('input[type="range"]').val()));
+}
+
+function urlShorten(url) {
+	url = encodeURIComponent(url);
+	$.getJSON('http://dvlp.se/new/?url=' + url + '&api=3&callback=?', function(ret) {
+			shortURL = ret.URI;
+			var message = escape('I\'ve created a beat with ddDrumr. Check it out! ');
+			message = message + encodeURIComponent(shortURL);
+			$('#share_pane .twitter a').attr('href', 'http://twitter.com?status=' + message);
+			$('#share_pane').toggleClass('target');
+		}
+	);
 }
