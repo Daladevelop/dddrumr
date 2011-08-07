@@ -157,8 +157,6 @@ function save() {
 		});
 	}).get();
 	
-	$('div.beat input[type="checkbox"]').attr('checked', false);
-	
 	location.hash = btoa(JSON.stringify(pattern));
 }
 
