@@ -258,6 +258,7 @@ function urlShorten(url) {
 			var message = escape('I\'ve created a beat with ddDrumr. Check it out! ');
 			message = message + encodeURIComponent(shortURL) + escape(' #daladevelop ') + encodeURIComponent('http://daladevelop.se');
 			$('#share_pane .twitter a').attr('href', 'http://twitter.com?status=' + message);
+			$('#share_pane .facebook a').attr('href', 'http://www.facebook.com/sharer.php?u=' + message);
 			$('#share_pane').toggleClass('target');
 		}
 	);
