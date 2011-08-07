@@ -66,6 +66,8 @@ function init(b, s) {
 		var $this = $(this);
 		var slider_value = $('#range');
 		
+		bpm = $this.val();
+		
 		if(slider_value.length != 0) {
 			slider_value.html($this.val() + ' BPM');
 		}
@@ -98,6 +100,7 @@ function init(b, s) {
 	
 	$('#share').click(function() {
 		save();
+		return false;
 	});
 }
 
@@ -110,10 +113,27 @@ function save() {
 	};
 	
 	$('div.beat').each(function(index, element) {
-		pattern['check'][index] = $(element).find('input:checked').map(function() {
-			return $(this).val();
+		pattern['check'][index] = new Array();
+		
+		$(element).find('input:checked').each(function() {
+			pattern['check'][index].push($(this).val());
 		});
 	}).get();
+	
+	$('div.beat input[type="checkbox"]').attr('checked', false);
+}
+
+function load(pattern) {
+	stop();
+	
+	bpm = pattern['bpm'];
+	$('input[type="range"]').val(pattern['bpm'])
+	
+	$('div.beat').each(function(index, element) {
+		for(var i = 0; i < pattern['check'][index].length; i++) {
+			$(element).find('input[value="' + pattern['check'][index][i] + '"]').attr('checked', true);
+		}
+	})
 }
 
 function play(bpm) {
