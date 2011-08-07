@@ -87,27 +87,28 @@ function init(b, s) {
 	});
 
 	var button_soundcloud_prev = $('<a href="#" class="button left">').html('<').click(function(){
-		count--;
+		soundcloud_prev();;
 
 			});	
-	var button_soundcloud = $('<a href="#" class="button middle ">').html('Next soundcloud song').click(function(){
+	var button_soundcloud = $('<a href="#" class="button middle ">').html('Load song from soundcloud').click(function(){
 				getSoundcloud();
 				return false; 
 			});
 	var button_soundcloud_play = $('<a href="#" class="button middle">').html('play').click(function(){
-				if(this.html() == "pause")
+				console.log(this);
+				if(this.innerHTML == "pause")
 				{
-					this.html("play");
-					soundcloud_play();
+					this.innerHTML = "play";
+					soundcloud_pause();
 				}
 				else
 				{
-					this.html("pause");
-					soundcloud_pause();
+					this.innerHTML = "pause";
+					soundcloud_play();
 				}
 			});	
 	var button_soundcloud_next = $('<a href="#" class="button right">').html('>').click(function(){
-		count++;
+		soundcloud_next();
 
 			});	
 	$('.buttons')
@@ -117,6 +118,7 @@ function init(b, s) {
 		.append(button_clear)
 		.append(button_soundcloud_prev)
 		.append(button_soundcloud)
+		.append(button_soundcloud_play)
 		.append(button_soundcloud_next);
 	
 	if(range.get(0).type != 'text') {

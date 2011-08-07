@@ -51,10 +51,48 @@
 		<script src="http://connect.soundcloud.com/2/latest.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			var counter=0;
+			function soundcloud_play()
+			{
+				$('.soundcloudsong').eq(counter)[0].play();
+
+			}
+
+			function soundcloud_pause()
+			{
+				$('.soundcloudsong').eq(counter)[0].pause();
+			}
+
+			function soundcloud_next()
+			{
+				if($('.soundcloudsong').eq(counter+1)[0].length == 0)
+				{
+						counter = 0;
+				}
+				else
+				{
+					counter++;
+				}
+				$('.soundcloudsong').eq(counter)[0].play();
+				$('.soundcloudsong').eq(counter-1)[0].pause();
+
+			}
+
+			function soundcloud_prev()
+			{
+				if($('.soundcloudsong').eq(counter-1)[0].length == 0)
+				{
+						counter = $('.soundcloudsong').length ;
+				}
+				else
+				{
+					counter--;
+				}
+				$('.soundcloudsong').eq(counter)[0].play();
+				$('.soundcloudsong').eq(counter+1)[0].pause();
+			}
 			function playFromSoundcloud(){
 				if($('.soundcloudsong').length == 0)
 				{
-					console.log(bpm);
 					getSoundcloud();
 				}
 				var song = $('.soundcloudsong').eq(counter)[0];
