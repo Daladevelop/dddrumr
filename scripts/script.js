@@ -134,6 +134,7 @@ function init(b, s) {
 	}
 	
 	$('#share').click(function() {
+		$('#share_pane').toggleClass('target');
 		save();
 		return false;
 	});
