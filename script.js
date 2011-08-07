@@ -87,17 +87,27 @@ function init(b, s) {
 		$('div.beat input[type="checkbox"]').attr('checked', false);
 		return false;
 	});
-	
-	var button_soundcloud = $('<a href="#" class="button ">').html('Next soundcloud song').click(function(){
+
+	var button_soundcloud_prev = $('<a href="#" class="button left">').html('<').click(function(){
+		count--;
+
+			});	
+	var button_soundcloud = $('<a href="#" class="button middle ">').html('Next soundcloud song').click(function(){
 				getSoundcloud();
 				return false; 
 			});
+	var button_soundcloud_next = $('<a href="#" class="button right">').html('>').click(function(){
+		count++;
+
+			});	
 	$('.buttons')
 		.append(range)
 		.append(button_play)
 		.append(button_stop)
 		.append(button_clear)
-		.append(button_soundcloud);
+		.append(button_soundcloud_prev)
+		.append(button_soundcloud)
+		.append(button_soundcloud_next);
 	
 	if(range.get(0).type != 'text') {
 		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
