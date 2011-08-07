@@ -92,30 +92,32 @@ function init(b, s) {
 	});
 
 	var button_soundcloud_prev = $('<a href="#" class="button left">').html('<').click(function(){
-		soundcloud_prev();;
-
-			});	
+		soundcloud_prev();
+		return false;
+	});
+	
 	var button_soundcloud = $('<a href="#" class="button middle ">').html('Load song from soundcloud').click(function(){
-				getSoundcloud();
-				return false; 
-			});
+		getSoundcloud();
+		return false; 
+	});
+	
 	var button_soundcloud_play = $('<a href="#" class="button middle">').html('play').click(function(){
-				console.log(this);
-				if(this.innerHTML == "pause")
-				{
-					this.innerHTML = "play";
-					soundcloud_pause();
-				}
-				else
-				{
-					this.innerHTML = "pause";
-					soundcloud_play();
-				}
-			});	
+		if(this.innerHTML == 'pause') {
+			this.innerHTML = 'play';
+			soundcloud_pause();
+		} else {
+			this.innerHTML = 'pause';
+			soundcloud_play();
+		}
+		
+		return false;
+	});	
+	
 	var button_soundcloud_next = $('<a href="#" class="button right">').html('>').click(function(){
 		soundcloud_next();
-
-			});	
+		return false;
+	});
+	
 	$('.buttons')
 		.append(range)
 		.append(button_play)
