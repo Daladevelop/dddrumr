@@ -22,11 +22,11 @@ function init(b, s) {
 }
 
 function add_grid(b, s) {
-	var frm = $('form');
-	var bdy = $('body');
+	var form = $('<form>');
+	var body = $('body');
 	
 	// Reset.
-	frm.html('');
+	form.html('');
 	$('audio').remove();
 	
 	// Add audio elements.
@@ -47,7 +47,7 @@ function add_grid(b, s) {
 			type: 'audio/mp3'
 		}));
 		
-		bdy.append(audio);
+		body.append(audio);
 	}
 	
 	// Add checkboxes.
@@ -68,8 +68,10 @@ function add_grid(b, s) {
 			beat.append(lbl);
 		}
 
-		frm.append(beat);
+		form.append(beat);
 	}
+	
+	$('footer').before(form);
 }
 
 function add_buttons() {
