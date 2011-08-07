@@ -97,6 +97,16 @@ function init(b, s) {
 	}
 }
 
+function save() {
+	stop();
+	
+	var pattern = {
+		'bpm': bpm
+	};
+	
+	console.log(pattern);
+}
+
 function play(bpm) {
 	if(bpm.toString().search(/^-?[0-9]+$/) == 0 && bpm >= 40 && bpm <= 200) {
 		stop();
