@@ -95,14 +95,25 @@ function init(b, s) {
 	if(range.get(0).type != 'text') {
 		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
 	}
+	
+	$('#share').click(function() {
+		save();
+	});
 }
 
 function save() {
 	stop();
 	
 	var pattern = {
-		'bpm': bpm
+		'bpm': bpm,
+		'check': []
 	};
+	
+	$('div.beat').each(function(index, element) {
+		pattern['check'][index] = $(element).find('input:checked').map(function() {
+			return $(this).val();
+		});
+	}).get();
 	
 	console.log(pattern);
 }
