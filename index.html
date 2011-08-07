@@ -28,23 +28,31 @@
 		<script src="script.js"></script>
 		<script src="http://connect.soundcloud.com/2/latest.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
-			$(function(){
+			function getSoundcloud(){
 
 				SC.initialize({
 					client_id: "537176f93040ef34102aecb4bf99639d"
 
 				});
 
-				SC.get("/tracks?limit=1&tags=acapella&bpm[from]="+ parseInt(bpm-10) + "&bpm[to]=" + parseInt(bpm+10), function(soundcloudSongs){
+				SC.get("/tracks?limit=5&tags=acapella&bpm[from]="+ parseInt(bpm-10) + "&bpm[to]=" + parseInt(bpm+10), function(soundcloudSongs){
 					$.each(soundcloudSongs, function () {
-						
+						var audio = $('<audio>', {
+							class: 'soundcloudsong'
+							});		
+						var link = this.stream_url + "?client_id=537176f93040ef34102aecb4bf99639d";
+						audio.append($('<source>', {
+							src: link,
+							type: 'audio/mp3' 	
+					
+							}));
+						$('body').append(audio);
 					});
-				});
 
 
 
-			});
-
+					});
+			}
 
 		</script>
 	</body>
