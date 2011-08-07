@@ -178,6 +178,7 @@ function add_buttons() {
 	
 	$('#demo').click(function() {
 		load('eyJicG0iOiIxNDIiLCJjaGVjayI6W1siMCIsIjMiXSxbXSxbIjAiLCIyIl0sWyIwIiwiNCJdLFsiMSIsIjMiXSxbIjAiXSxbIjIiXSxbIjAiXSxbIjMiXSxbIjAiXSxbIjIiXSxbIjAiLCI1Il0sWyIxIiwiMyJdLFtdLFsiMiIsIjYiXSxbIjAiLCI2Il1dfQ==');
+		play(bpm);
 		return false;
 	});
 	
@@ -211,7 +212,6 @@ function load(hash) {
 	
 	pattern = JSON.parse(atob(hash));
 	
-	bpm = pattern['bpm'];
 	$('input[type="range"]').val(pattern['bpm'])
 	
 	$('div.beat').each(function(index, element) {
@@ -219,6 +219,8 @@ function load(hash) {
 			$(element).find('input[value="' + pattern['check'][index][i] + '"]').attr('checked', true);
 		}
 	})
+	
+	$('input[type="range"]').change();
 }
 
 function play(bpm) {
