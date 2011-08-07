@@ -73,14 +73,17 @@ function init(b, s) {
 	
 	var button_play = $('<a href="#" class="button left">').html('Play').click(function() {
 		play(parseInt($('input[type="range"]').val()));
+		return false;
 	});
 	
 	var button_stop = $('<a href="#" class="button middle">').html('Stop').click(function() {
 		stop();
+		return false;
 	});
 	
 	var button_clear = $('<a href="#" class="button right">').html('Clear').click(function() {
 		$('div.beat input[type="checkbox"]').attr('checked', false);
+		return false;
 	});
 	
 	$('.buttons')
@@ -92,6 +95,16 @@ function init(b, s) {
 	if(range.get(0).type != 'text') {
 		$('.buttons').append($('<span id="range">').html(bpm + ' BPM'));
 	}
+}
+
+function save() {
+	stop();
+	
+	var pattern = {
+		'bpm': bpm
+	};
+	
+	console.log(pattern);
 }
 
 function play(bpm) {
