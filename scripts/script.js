@@ -131,6 +131,10 @@ function init(b, s) {
 		save();
 		return false;
 	});
+	
+	$('#about_box').click(function() {
+		history.go(-1);
+	});
 
 }
 
