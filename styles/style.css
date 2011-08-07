@@ -38,11 +38,11 @@ h1, h2, h3 {
 
 h1 {
 	font-size: 2em;
-    margin-bottom: 20px; 
+	margin-bottom: 20px; 
 }
 h2 {
 	font-size: 1.2em;
-    margin-bottom: 30px; 
+	margin-bottom: 30px; 
 }
 
 div.buttons {
@@ -51,9 +51,15 @@ div.buttons {
 	position: relative;
 }
 
-div.buttons input[type=range] {
+div.buttons input[type=range], div.buttons select {
 	height: 33px;
 }
+
+div buttons select {
+	margin-right: 7px;
+	padding: 7px 0 7px 7px;
+}
+
 div.buttons span#range {
 	line-height: 37px;
 	display: block;
@@ -62,11 +68,11 @@ div.buttons span#range {
 }
 
 input[type=checkbox] {
-    display: block;
-    position: absolute;
-    opacity: 0;
-    background:#507D2A;
-    z-index: 10;
+	display: block;
+	position: absolute;
+	opacity: 0;
+	background:#507D2A;
+	z-index: 10;
 }
 
 input[type=checkbox] + label {
@@ -77,9 +83,9 @@ input[type=checkbox] + label {
 }
 
 input[type=checkbox]:checked + label{
-    //background: orange;
-    opacity: 0.6;
-    background: #e2a62d; /* Old browsers */
+	//background: orange;
+	opacity: 0.6;
+	background: #e2a62d; /* Old browsers */
 	background: -moz-linear-gradient(top, #e2a62d 0%, #b77a00 51%, #e2a62d 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e2a62d), color-stop(51%,#b77a00), color-stop(100%,#e2a62d)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #e2a62d 0%,#b77a00 51%,#e2a62d 100%); /* Chrome10+,Safari5.1+ */
@@ -214,3 +220,7 @@ input[type=checkbox] + label {
 }
 
 .buttons {margin-bottom: 1em;}
+
+.beat {
+	position: relative;
+}
