@@ -114,8 +114,6 @@ function save() {
 			return $(this).val();
 		});
 	}).get();
-	
-	console.log(pattern);
 }
 
 function play(bpm) {
