@@ -96,6 +96,18 @@ function init(b, s) {
 				getSoundcloud();
 				return false; 
 			});
+	var button_soundcloud_play = $('<a href="#" class="button middle">').html('play').click(function(){
+				if(this.html() == "pause")
+				{
+					this.html("play");
+					soundcloud_play();
+				}
+				else
+				{
+					this.html("pause");
+					soundcloud_pause();
+				}
+			});	
 	var button_soundcloud_next = $('<a href="#" class="button right">').html('>').click(function(){
 		count++;
 
