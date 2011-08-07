@@ -5,6 +5,11 @@ var sounds = ['sounds/kick','sounds/snare','sounds/hihat','sounds/cowbell', 'sou
 
 $(document).ready(function() {
 	init(16, sounds.length);
+	
+	if(location.hash.length > 1) {
+		load(location.hash.replace('#', ''));
+	}
+	
 	play(bpm);
 });
 
@@ -153,10 +158,14 @@ function save() {
 	}).get();
 	
 	$('div.beat input[type="checkbox"]').attr('checked', false);
+	
+	location.hash = btoa(JSON.stringify(pattern));
 }
 
-function load(pattern) {
+function load(hash) {
 	stop();
+	
+	pattern = JSON.parse(atob(hash));
 	
 	bpm = pattern['bpm'];
 	$('input[type="range"]').val(pattern['bpm'])
