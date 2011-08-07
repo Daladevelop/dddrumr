@@ -138,6 +138,10 @@ function init(b, s) {
 		return false;
 	});
 	
+	$('#demo').click(function() {
+		load('eyJicG0iOiIxNDIiLCJjaGVjayI6W1siMCIsIjMiXSxbXSxbIjAiLCIyIl0sWyIwIiwiNCJdLFsiMSIsIjMiXSxbIjAiXSxbIjIiXSxbIjAiXSxbIjMiXSxbIjAiXSxbIjIiXSxbIjAiLCI1Il0sWyIxIiwiMyJdLFtdLFsiMiIsIjYiXSxbIjAiLCI2Il1dfQ==');
+	});
+	
 	$('#about_box').click(function() {
 		history.go(-1);
 	});
