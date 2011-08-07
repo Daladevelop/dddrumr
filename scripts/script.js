@@ -88,6 +88,7 @@ function init(b, s) {
 	
 	var button_clear = $('<a href="#" class="button right">').html('Clear').click(function() {
 		$('div.beat input[type="checkbox"]').attr('checked', false);
+		location.hash = '';
 		return false;
 	});
 
@@ -96,7 +97,7 @@ function init(b, s) {
 		return false;
 	});
 	
-	var button_soundcloud = $('<a href="#" class="button middle ">').html('Load song from soundcloud').click(function(){
+	var button_soundcloud = $('<a href="#" class="button middle ">').html('Load song from SoundCloud').click(function(){
 		getSoundcloud();
 		return false; 
 	});
